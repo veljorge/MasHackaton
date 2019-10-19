@@ -1,0 +1,15 @@
+<div>
+  <button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()" [disabled]="counter===3">Start Recording</button>
+  <button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
+  <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
+  <button *ngIf="!isRecording && blobUrl" (click)="saveRecordedData()" [disabled]="counter===3">Save rocording</button>
+  <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+  <div>
+    <audio *ngIf="!isRecording && blobUrl" controls>
+      <source [src]="blobUrl" type="audio/webm">
+    </audio>
+  </div>
+</div>
+<div>
+  <h1>{{counter}}</h1>
+</div>

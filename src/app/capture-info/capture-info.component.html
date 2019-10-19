@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-5">
+    <input type="button" value="save data to dictionary" (click)="saveDataToDictionary()" *ngIf="showAddPersonPanel || showAudioPanel">
+  </div>
+  <div class="col-md-5">
+    <input type="button" value="Clean Info" (click)="cleanInfo()" *ngIf="showAddPersonPanel || showAudioPanel">
+  </div>
+</div>
+<div clas="row">
+  <div class="col-md-12">
+    <app-person-manage-panel (personAdded)="showImagePerson()"></app-person-manage-panel>
+  </div>
+</div>
+<div class="row" *ngIf="showAddPersonPanel">
+  <div class="col-md-12">
+    <app-image-capture></app-image-capture>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-verification-profile-manage-panel (profileVerificationId)="setShowAudioPanel()">
+    </app-verification-profile-manage-panel>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-audio *ngIf="showAudioPanel"></app-audio>
+  </div>
+</div>
